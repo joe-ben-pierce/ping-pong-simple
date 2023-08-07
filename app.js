@@ -22,7 +22,7 @@ function make_home_page(){
 }
 
 function make_join_game_pg(){
-    let result = make_root_div();
+    let result = utils.make_root_div();
     result.style.backgroundColor = "blue";
     let img = document.createElement("img");
     img.src = "pics/star.jpg";

@@ -1,3 +1,5 @@
+
+
 function replace_body_with_element(element){
     // Clear the body
     document.body.innerHTML = '';
@@ -34,4 +36,11 @@ function make_para(text_content){
     result.textContent = text_content;
     return result;
 }
+
+let utils = {
+    replace_body_with_element: replace_body_with_element,
+    make_btn: make_btn,
+    make_root_div: make_root_div,
+    make_para: make_para
+};
 

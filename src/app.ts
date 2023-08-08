@@ -24,9 +24,11 @@ function make_home_page(){
 function make_join_game_pg(){
     let result = utils.make_root_div();
     result.style.backgroundColor = "blue";
-    let img = document.createElement("img");
-    img.src = "pics/star.jpg";
-    result.append(img);
+    let meme = utils.make_meme("pics/star.jpg", "");
+    document.addEventListener("keydown", event => {
+        meme.caption.textContent += event.key;
+    });
+    result.append(meme.containing_div);
     return result;
 }
 

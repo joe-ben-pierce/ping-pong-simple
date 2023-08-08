@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+      "target": "es5", // You can choose a different target depending on your browsers' support
+      "module": "commonjs",
+      "outDir": "./dist", // Output directory for compiled JavaScript
+      "strict": true
+  },
+  "include": [
+      "./src/**/*.ts" // Where your TypeScript files are located
+  ]
+}

@@ -10,6 +10,12 @@ function assert(condition: any, message = "generic msg"){
     }
 }
 
+function get_elem_by_id(id: string){
+    let result = document.getElementById(id);
+    assert(result, `failed to get element with id '${id}'`);
+    return result;
+}
+
 function replace_body_with_element(element: HTMLDivElement){
     // Clear the body
     document.body.innerHTML = "";
@@ -36,9 +42,21 @@ function make_btn(text_content: string): HTMLButtonElement{
     return result;
 }
 
+const hidden_input_id = "hidden-input";
+
+
 function make_root_div(){
     let result = document.createElement("div");
     result.classList.add("my-body");
+
+    let hidden_input = document.createElement("input");
+    hidden_input.type = "text";
+    hidden_input.classList.add("hidden-input");
+    hidden_input.autocomplete = "off";
+    hidden_input.value = "nonsense-" + Math.random(); // nonsense so it doesn't try to do autocomplete
+    hidden_input.id = hidden_input_id;
+
+    result.append(hidden_input);
     return result;
 }
 
@@ -55,19 +73,26 @@ interface Meme {
     containing_div: HTMLDivElement
 }
 
+function make_div_with_class(cls_name: string): HTMLDivElement {
+    let result = document.createElement("div");
+    result.classList.add(cls_name);
+    return result;
+}
+
 let utils = {
     replace_body_with_element: replace_body_with_element,
     make_btn: make_btn,
     make_root_div: make_root_div,
     make_para: make_para,
     make_meme: function(image_path: string, caption: string): Meme {
-        let image = new Image();
+        let image = document.createElement("img");
         image.src = image_path;
-        let div_with_txt = document.createElement("div");
-        div_with_txt.classList.add("meme-text");
+        image.addEventListener("click", function(){
+            get_elem_by_id(hidden_input_id)?.focus();
+        });
+        let div_with_txt = make_div_with_class("meme-text");
         div_with_txt.textContent = caption;
-        let containing_div = document.createElement("div");
-        containing_div.classList.add("meme");
+        let containing_div = make_div_with_class("meme");
         containing_div.append(image, div_with_txt);
         return {
             image: image,

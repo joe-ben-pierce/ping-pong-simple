@@ -55,6 +55,9 @@ body {
     text-align: center;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.6); /* Optional: for better text visibility */
+    overflow: hidden; /* Ensures the text stays within the bounds */
+    white-space: pre-wrap; /* Wraps the text to the next line */
+    word-wrap: break-word; /* Allows unbreakable words to be broken */
 }
 
   

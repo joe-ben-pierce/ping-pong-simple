@@ -41,7 +41,7 @@ function make_root_div() {
     hidden_input.type = "text";
     hidden_input.classList.add("hidden-input");
     hidden_input.autocomplete = "off";
-    hidden_input.value = "nonsense-" + Math.random(); // nonsense so it doesn't try to do autocomplete
+    hidden_input.value = "nonsene-".concat(Math.random()).concat(Math.random()).concat(Math.random()).concat(Math.random()); // nonsense so it doesn't try to autocomplete
     hidden_input.id = hidden_input_id;
     result.append(hidden_input);
     return result;
@@ -56,6 +56,10 @@ function make_div_with_class(cls_name) {
     var result = document.createElement("div");
     result.classList.add(cls_name);
     return result;
+}
+function is_single_letter(str) {
+    var regex = /^[A-Za-z]+$/;
+    return str.length === 1 && regex.test(str);
 }
 var utils = {
     replace_body_with_element: replace_body_with_element,

@@ -79,6 +79,11 @@ function make_div_with_class(cls_name: string): HTMLDivElement {
     return result;
 }
 
+function is_single_letter(str: string) {
+    let regex = /^[A-Za-z]+$/;
+    return str.length === 1 && regex.test(str);
+}
+
 let utils = {
     replace_body_with_element: replace_body_with_element,
     make_btn: make_btn,

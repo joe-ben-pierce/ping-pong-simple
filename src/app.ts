@@ -23,10 +23,16 @@ function make_home_page(){
 
 function make_join_game_pg(){
     let result = utils.make_root_div();
-    result.style.backgroundColor = "blue";
+    result.style.backgroundColor = "white";
     let meme = utils.make_meme("pics/star.jpg", "");
     document.addEventListener("keydown", event => {
-        meme.caption.textContent += event.key;
+        let key = event.key;
+        if(is_single_letter(key)){
+            meme.caption.textContent += key;
+        } else if(key === "Backspace") {
+            meme.caption.textContent = meme.caption.textContent!.slice(0, -1); // delete the last charecter
+        }
+        
     });
     result.append(meme.containing_div);
     return result;

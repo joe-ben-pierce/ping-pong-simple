@@ -53,7 +53,7 @@ function make_root_div(){
     hidden_input.type = "text";
     hidden_input.classList.add("hidden-input");
     hidden_input.autocomplete = "off";
-    hidden_input.value = "nonsense-" + Math.random(); // nonsense so it doesn't try to do autocomplete
+    hidden_input.value = `nonsene-${Math.random()}${Math.random()}${Math.random()}${Math.random()}`; // nonsense so it doesn't try to autocomplete
     hidden_input.id = hidden_input_id;
 
     result.append(hidden_input);
